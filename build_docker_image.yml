@@ -17,7 +17,7 @@ variables:
   # define imageName, registryLogin, registryPassword variables in the build pipeline using UI
 
 steps:
-- bash: docker build -f $(system.defaultWorkingDirectory)/docker/Dockerfile -t $(registryLogin)/$(imageName):$(imageversion) --build-arg ANSIBLE_VERSION=$(imageversion) $(system.defaultWorkingDirectory)
+- bash: docker build -f $(system.defaultWorkingDirectory)/Dockerfile -t $(registryLogin)/$(imageName):$(imageversion) $(system.defaultWorkingDirectory)
   displayName: 'docker build'
 
 - bash: docker login -u $(registryLogin) -p $(registryPassword) 
