@@ -1,6 +1,8 @@
 FROM alpine:latest
+ENV DIRPATH /opt
+
 RUN apk add --no-cache curl jq
-WORKDIR /opt
-COPY ./start.sh .
-RUN chmod +x start.sh
-CMD ["./start.sh"]
+WORKDIR $DIRPATH
+COPY ./start.sh $DIRPATH/start.sh
+RUN chmod +x $DIRPATH/start.sh
+CMD ["$DIRPATH/start.sh"]
